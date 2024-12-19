@@ -1,0 +1,35 @@
+use("baticell_store")
+
+//1. Listar de manera ordenada los clientes (nombres, apellidos, email y teléfono)
+// ordenados por apellidos de manera ascendente y por sucursal de manera ascendente
+
+var clientes = db.clients.find(
+    {},
+    {
+        _id: 0,
+        nombre: 1, 
+        apellidos: 1,
+        email: 1,
+        telefono: 1
+    }
+).sort(
+    {
+        apellidos: 1,
+        sucursal: 1
+    }
+);
+
+var arregloClientes = clientes.toArray();
+var contadorClientes = 0;
+
+arregloClientes.forEach(function(cliente) {
+    
+    contadorClientes++;
+
+    print('Cliente: ' + contadorClientes);
+    print('Nombre : ' + cliente.nombre);
+    print('Apellidos : ' + cliente.apellidos);
+    print('Email : ' + cliente.email);
+    print('Teléfono : ' + cliente.telefono);
+    print('---------------------------------------');
+});

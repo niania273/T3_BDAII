@@ -1,0 +1,80 @@
+use("baticell_store")
+
+/* 1. Inserte de forma masiva 5 nuevos clientes
+   (dos de estado civil soltero y dos de estado civil casado y otro sin estado).
+   Estos nuevos documentos deben tener valores correlativos (1, 2, 3, 4 y 5) al _id. */
+
+db.clients.insertMany([
+    {
+        _id: 1,
+        nombre: "Vanessa",
+        apellidos: "Chavez",
+        email: "vchavez@outlook.com",
+        telefono: "955565955",
+        direccion: "Calle Los Geranios 273, San Borja",
+        estadoCivil: "Soltero",
+        modeloFavorito: "Samsung Galaxy A55",
+        activo: true,
+        puntos: 150
+    },
+    {
+        _id: 2,
+        nombre: "Aurora",
+        apellidos: "Estrada",
+        email: "aurestrada@gmail.com",
+        telefono: "955999444",
+        direccion: "Jr. Leoncio Prado 120, San Miguel",
+        estadoCivil: "Soltero",
+        historialCompras: [
+            {
+                producto: "Huawei P40",
+                cantidad: 1,
+                descuento: false,
+                montoTotal: 1750.5
+            }
+        ],
+        activo: true
+    },
+    {
+        _id: 3,
+        nombre: "Jaime",
+        apellidos: "García",
+        email: "jaime_garcia@hotmail.com",
+        direccion: "Jr. Manuel Merino 470, Lince",
+        estadoCivil: "Casado",
+        fechaRegistro: ISODate("2024-12-20T00:00:00Z"),
+        modeloFavorito: "TLC AS55",
+        suscripciones: ["Novedades TLC", "Ofertas Especiales"],
+        puntos: 350
+    },
+    {
+        _id: 4,
+        nombre: "Angelo",
+        apellidos: "Gomez",
+        email: "ang12gomez@hotmail.com",
+        telefono: "951232343",
+        estadoCivil: "Casado",
+        fechaRegistro: ISODate("2024-01-15T00:00:00Z"),
+        historialCompras: [
+            {
+                producto: "ZTE Blade A34",
+                cantidad: 2,
+                montoTotal: 4500.5
+            }
+        ],
+        suscripciones: ["Novedades ZTE", "Ofertas Especiales"],
+        puntos: 200
+    },
+    {
+        _id: 5,
+        nombre: "Fiorella",
+        apellidos: "Robles",
+        email: "fiorella.robles@gmail.com",
+        telefono: "940555333",
+        direccion: "Calle Victor Paz 340, Santa Anita",
+        fechaRegistro: ISODate("2023-03-12T00:00:00Z"),
+        modeloFavorito: "Xiaomi Redmi Note 13",
+        suscripciones: ["Novedades Xiaomi", "Ofertas Especiales"],
+        activo: true
+    }
+])

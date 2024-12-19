@@ -1,0 +1,73 @@
+use("baticell_store")
+
+//2. Sentencia mongodb modifique el email de dos clientes
+db.clients.updateOne(
+    {
+        _id: 1
+    },
+    {
+        $set: {
+            email: "vanessa_chavez@hotmail.com"
+        }
+    }
+)
+
+db.clients.updateOne(
+    {
+        _id: 5
+    },
+    {
+        $set: {
+            email: "fiorella_robles@outlook.com"
+        }
+    }
+)
+
+//Sentencia mongodb modifique el apellido
+db.clients.updateOne(
+    {
+        _id: 4
+    },
+    {
+        $set: {
+            apellidos: "Trujillo"
+        }
+    }
+)
+
+//Sentencia mongodb modifique el número de teléfono y dirección de tres clientes
+db.clients.updateOne(
+    {
+        nombre: "Laura"
+    },
+    {
+        $set: {
+            telefono: '956343280',
+            direccion: 'Jr. Gregorio Escobedo 120, Jesús María'
+        }
+    }
+)
+
+db.clients.updateOne(
+    {
+        _id: ObjectId('67637c3846750b91eb05d2b4')
+    },
+    {
+        $set: {
+            telefono: '990880660',
+            direccion: 'Av. García Rada 1050, La Molina'
+        }
+    }
+)
+
+db.clients.updateOne(
+    {
+        _id: ObjectId('67637c3846750b91eb05d2b5')
+    },
+    {
+        $set: {
+            telefono: '910710510',
+            direccion: 'Av. Jose Galvez 1550, Miraflores'
+        }
+    }
+)

@@ -1,0 +1,32 @@
+use("baticell_store")
+
+//2. Listar los productos (nombre, marca, categoria, imei y especificaciones)
+// cuyo precio es mayor e igual que 1000. Ordenado por precio de manera ascendente
+
+var productos = db.products.find(
+    {
+        precio_unitario: { $gte: 1000}
+    },
+    {
+        _id: 0,
+        nombre: 1,
+        marca: 1,
+        categoria: 1,
+        imei: 1,
+        especificaciones: 1
+    }
+).sort(
+    { precio_unitario: 1}
+)
+
+var arregloProductos = productos.toArray();
+var contadorProductos = 0;
+
+arregloProductos.forEach(producto => {
+
+    contadorProductos++;
+
+    print('Producto : ' + contadorProductos);
+    print(JSON.stringify(producto));
+    print('***');
+});

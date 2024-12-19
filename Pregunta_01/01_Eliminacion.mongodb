@@ -1,0 +1,8 @@
+use("baticell_store")
+
+//4. Elimine el último cliente ingresado.
+db.clients.deleteOne(
+    {
+        _id: 5
+    }
+)

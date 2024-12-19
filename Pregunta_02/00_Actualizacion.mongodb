@@ -1,0 +1,19 @@
+use("baticell_store")
+
+/* 2. Actualizar las siguientes especificaciones en los productos de Almacenamiento 256 GB:
+ram: 16 GB
+cantidad: 45
+coloresdisponible: dorado (agregar a los demás existentes)*/
+
+db.products.updateMany(
+    {
+        "especificaciones.almacenamiento": "256 GB"
+    },
+    {
+        $set: {
+            "especificaciones.ram": "16 GB",
+            cantidad: 45
+        },
+        $push: { coloresDisponibles: "Dorado" }
+    }
+)

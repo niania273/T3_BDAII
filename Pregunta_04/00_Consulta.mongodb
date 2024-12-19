@@ -1,0 +1,26 @@
+use("baticell_store")
+
+/* 1. Listar todos los productos con sus respectivos:
+   nombre, imei, categoría y  coloresdisponibles,
+   filtre aquellos productos de cantidad menor igual a 40.
+   ordene en descendente por cantidad del producto. */
+
+db.products.aggregate(
+    [
+        {
+            $match: { cantidad: { $lte: 40}}
+        },
+        {
+            $sort: { cantidad: -1 }
+        },
+        {
+            $project: {
+                _id: 0,
+                nombre: 1,
+                imei: 1,
+                categoria: 1,
+                coloresDisponibles: 1
+            }
+        }
+    ]
+)

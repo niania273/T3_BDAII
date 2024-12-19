@@ -1,0 +1,8 @@
+use("baticell_store")
+
+//3. Elimine aquellos datos de clientes cuyo estado civil es “casado”.
+db.clients.deleteMany(
+    {
+        estadoCivil: "Casado"
+    }
+)

@@ -1,0 +1,25 @@
+use("baticell_store")
+
+/* 2. Listar todos los productos con sus respectivos nombre, precio_unitario, marca y especificaciones,
+   filtre aquellos productos de Sistema Operativo Android 11.
+   Ordenar de manera ascendente por marca y precio_unitario descendente */
+
+db.products.aggregate(
+    [
+        {
+            $match: { "especificaciones.sistema_operativo": "Android 11"}
+        },
+        {
+            $sort: { marca: 1, precio_unitario: -1 }
+        },
+        {
+            $project: {
+                _id: 0,
+                nombre: 1,
+                precio_unitario: 1,
+                marca: 1,
+                especificaciones: 1
+            }
+        }
+    ]
+)
